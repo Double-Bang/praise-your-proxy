@@ -68,7 +68,7 @@ export default function Navbar() {
                                  </MenuList>
                              </Menu>
                          </Stack>
-                        : <Button onClick={signIn()}>Sign in</Button>}
+                        : <Button>Sign in</Button>}
                     </Flex>
                 </Flex>
             </Box>
