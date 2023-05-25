@@ -17,32 +17,35 @@ model User {
   isAdmin      Boolean   @default(false)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-  writtenPosts Post[]    @relation("WrittenPosts")
-  comments     Comment[] @relation("Comments")
+  posts        Post[]
+  comments     Comment[]
 }
 
 model Post {
   id           String    @id @default(uuid())
   cardImageURL String
   cardName     String
-  content      String
+  subject      String
+  body         String
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-  author       User      @relation("WrittenPosts", fields: [authorId], references: [id])
+  author       User      @relation(fields: [authorId], references: [id])
   authorId     String
   seller       Seller
-  comments     Comment[] @relation("PostComments")
+  comments     Comment[]
+  likes        Int
 }
 
 model Comment {
   id        String   @id @default(uuid())
   content   String
-  author    User     @relation("Comments", fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
   authorId  String
-  post      Post     @relation("PostComments", fields: [postId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
   postId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  likes     Int
 }
 
 enum Seller {
