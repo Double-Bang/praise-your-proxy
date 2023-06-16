@@ -1,11 +1,11 @@
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import PostFeed from "@/components/PostFeed";
+import Navbar from "../components/Navbar";
+/* import HeroSection from "@/components/HeroSection"; */
+import PostFeed from "../components/PostFeed";
 
 const IndexPage = () => (
   <>
     <Navbar />
-    <HeroSection />
+    {/* <HeroSection /> */}
     <PostFeed />
   </>
 );

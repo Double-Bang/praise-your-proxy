@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
+import Navbar from "../components/Navbar";
 
 const PostSubmissionPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);

@@ -9,7 +9,7 @@ import {
   Avatar,
   Button,
   Menu,
-  MenuButton,
+    /* MenuButton, */
   MenuList,
   MenuItem,
   MenuDivider,
@@ -68,15 +68,15 @@ export default function Navbar() {
                     {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                   </Button>
                   <Menu>
-                    <MenuButton
-                      as={Button}
-                      rounded="full"
-                      variant="link"
-                      cursor="pointer"
-                      minW={0}
-                    >
-                      <Avatar size="sm" src={session.user.image} />
-                    </MenuButton>
+                      {/* <MenuButton
+                          as={Button}
+                          rounded="full"
+                          variant="link"
+                          cursor="pointer"
+                          minW={0}
+                          >
+                          <Avatar size="sm" src={session.user.image} />
+                          </MenuButton> */}
                     <MenuList alignItems="center">
                       <br />
                       <Center>

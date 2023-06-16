@@ -1,5 +1,5 @@
 import { Container, VStack } from "@chakra-ui/react";
-import Post from "@/components/Post";
+import Post from "./Post";
 
 const PostFeed = () => {
   // Okay so this is my attempt at making fake data.
