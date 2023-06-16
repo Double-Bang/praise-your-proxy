@@ -36,14 +36,6 @@ export default function Navbar() {
     }
   };
 
-  const handleSignIn = () => {
-    signIn(); // Initiates the sign-in flow provided by NextAuth.js
-  };
-
-  const handleSignOut = () => {
-    signOut(); // Signs out the user using NextAuth.js
-  };
-
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -89,13 +81,13 @@ export default function Navbar() {
                       <br />
                       <MenuDivider />
                       <MenuItem>Your Reviews</MenuItem>
-                      <MenuItem onClick={handleSignOut}>Logout</MenuItem>
+                      <MenuItem onClick={() => signOut()}>Logout</MenuItem>
                     </MenuList>
                   </Menu>
                 </Stack>
               </>
             ) : (
-              <Button onClick={handleSignIn}>Sign in</Button>
+              <Button onClick={() => signIn()}>Sign in</Button>
             )}
           </Flex>
         </Flex>
