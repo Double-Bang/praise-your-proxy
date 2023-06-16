@@ -3,6 +3,7 @@ import Providers from "next-auth/providers";
 
 
 const options = {
+  debug: true,
   providers: [
     Providers.Discord({
       clientId: process.env.DISCORD_CLIENT_ID,
