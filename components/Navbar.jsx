@@ -8,16 +8,39 @@ import {
   Flex,
   Avatar,
   Button,
+  Center,
   Menu,
-    /* MenuButton, */
+  MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
   useColorModeValue,
   Stack,
   useColorMode,
-  Center,
+  Text,
+  IconButton,
+  Icon,
 } from "@chakra-ui/react";
+import {
+  FiHome,
+  FiTrendingUp,
+  FiCompass,
+  FiStar,
+  FiSettings,
+  FiMenu,
+  FiBell,
+  FiChevronDown,
+} from 'react-icons/fi';
+import { FaBars, FaTimes, FaUser } from "react-icons/fa";
+import { RiArrowDropDownLine } from "react-icons/ri";
+
+const LinkItems = [
+  { name: 'Home', icon: FiHome },
+  { name: 'Trending', icon: FiTrendingUp },
+  { name: 'Explore', icon: FiCompass },
+  { name: 'Favourites', icon: FiStar },
+  { name: 'Settings', icon: FiSettings },
+];
 
 export default function Navbar() {
   const { data: session, status } = useSession();
@@ -25,16 +48,52 @@ export default function Navbar() {
   const router = useRouter();
   const currentPath = router.pathname;
 
-  // A simple function so that the user can navigate back to the home page.
   const handleLogoClick = () => {
     if (currentPath === "/") {
-      // Refresh the page if already on the index page
       router.replace(router.asPath);
     } else {
-      // Navigate to the index page
       router.push("/");
     }
   };
+
+  const userMenuContent = (
+    <>
+      <Flex alignItems="center">
+        {session && (
+          <Avatar size="md" src={session.user.image} />
+        )}
+        <Text ml={2}>{session?.user?.name || "Guest"}</Text>
+        <IconButton
+          aria-label="Toggle color mode"
+          icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          onClick={toggleColorMode}
+          ml={2}
+        />
+      </Flex>
+      <MenuDivider />
+      <MenuItem>
+        {session ? (
+          <Link href="/post-submission" passHref>
+            <Button as="a" variant="link">
+              Post Review
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            onClick={() => signIn("google")}
+            colorScheme="blue"
+            size="sm"
+          >
+            Sign In
+          </Button>
+        )}
+      </MenuItem>
+      <MenuItem onClick={session ? () => signOut() : () => signIn("google")}>
+        {session ? "Logout" : "Login"}
+      </MenuItem>
+    </>
+  );
+
 
   return (
     <>
@@ -60,7 +119,7 @@ export default function Navbar() {
                     {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                   </Button>
                   <Menu>
-                      {/* <MenuButton
+                      <MenuButton
                           as={Button}
                           rounded="full"
                           variant="link"
@@ -68,7 +127,7 @@ export default function Navbar() {
                           minW={0}
                           >
                           <Avatar size="sm" src={session.user.image} />
-                          </MenuButton> */}
+                          </MenuButton>
                     <MenuList alignItems="center">
                       <br />
                       <Center>
