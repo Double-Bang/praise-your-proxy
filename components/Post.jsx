@@ -20,7 +20,7 @@ import {
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 
 const Post = ({ post }) => {
-  const { id, cardName, cardImage, cardSet, cardNumber, seller, review, user } = post;
+  const { id, cardName, cardImage, cardSet, cardNumber, seller, review, author } = post;
 
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
@@ -71,7 +71,7 @@ const Post = ({ post }) => {
               {seller}
             </Badge>
             <Text fontSize="sm" mr={2}>
-              {user}
+              {author}
             </Text>
             <Button colorScheme="blue" size="sm">
               Upvote
