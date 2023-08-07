@@ -30,7 +30,7 @@ model Post {
   seller       String
   review       String
   comments     Comment[]
-  author       User      @relation(fields: [authorId], references: [id])
+  author       User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
 }
 
 model Comment {
@@ -41,6 +41,6 @@ model Comment {
   createdAt DateTime @default(now())
   likes     Int
   updatedAt DateTime @updatedAt
-  author    User     @relation(fields: [authorId], references: [id])
-  post      Post     @relation(fields: [postId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
 }

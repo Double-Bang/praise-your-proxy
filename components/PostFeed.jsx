@@ -6,7 +6,7 @@ const PostFeed = () => {
   const posts = [
     {
       id: 1,
-      author: "Lei Ying Lo",
+      user: "Lei Ying Lo",
       cardName: "Black Lotus",
       cardImage: "https://i.imgur.com/pYig6QF.jpg",
       cardSet: "CED",
@@ -16,7 +16,7 @@ const PostFeed = () => {
     },
     {
       id: 2,
-      author: "I.P. Freely",
+      user: "I.P. Freely",
       cardName: "Nicolas Mage",
       cardImage: "https://i.imgur.com/6Y0flSS.jpg",
       cardSet: "SWED",
