@@ -100,8 +100,8 @@ export default function Navbar() {
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems="center" justifyContent="space-between">
           <Box>
-            <Button variant="link" onClick={handleLogoClick}>
-              <Image src="" alt="Praise Your Proxy" />
+            <Button variant="link" onClick={handleLogoClick} marginTop="5px" >
+              <Image src="/images/PYP-D.png" width="80" height="80" alt="Praise Your Proxy" />
             </Button>
           </Box>
           <Flex alignItems="center">
