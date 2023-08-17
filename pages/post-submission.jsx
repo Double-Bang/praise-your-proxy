@@ -39,7 +39,7 @@ const PostSubmissionPage = () => {
     event.preventDefault();
     console.log("Submitting form");
     const data = formData;
-    fetch('/api/post-test', {
+    fetch('/api/post-submission', {
       body: JSON.stringify({...data}),
       headers: {
         Accept: 'application/json',
